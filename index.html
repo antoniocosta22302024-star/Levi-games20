@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levi Games - Portal Poki</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding-bottom: 80px;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 3px solid #7f3fbf;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 2px 2px #cc0000;
+            letter-spacing: 2px;
+        }
+
+        /* BARRA DE CATEGORIAS */
+        .nav-categorias {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background: #252525;
+            overflow-x: auto; /* Deixa arrastar pro lado no A15 */
+            white-space: nowrap;
+        }
+
+        .btn-cat {
+            background: #333;
+            color: white;
+            border: 2px solid #555;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Cores das Abas */
+        .btn-acao:hover { border-color: #ff4d4d; color: #ff4d4d; }
+        .btn-simulacao:hover { border-color: #4da6ff; color: #4da6ff; }
+        .btn-tabuleiro:hover { border-color: #ffdb4d; color: #ffdb4d; }
+        .btn-arcade:hover { border-color: #ff4dff; color: #ff4dff; }
+
+        .grid-jogos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .card-jogo {
+            background-color: #2a2a2a;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            overflow: hidden;
+        }
+
+        .card-jogo:active { transform: scale(0.9); }
+
+        .thumb {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            background: #333;
+        }
+
+        .titulo-jogo {
+            padding: 10px;
+            font-size: 13px;
+            text-align: center;
+            font-weight: bold;
+            background: #222;
+        }
+
+        /* Estilo do Botão Share */
+        .btn-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LEVI GAMES</div>
+    </header>
+
+    <nav class="nav-categorias">
+        <button class="btn-cat btn-acao" onclick="filtrar('acao')">AÇÃO</button>
+        <button class="btn-cat btn-simulacao" onclick="filtrar('simulacao')">SIMULAÇÃO</button>
+        <button class="btn-cat btn-tabuleiro" onclick="filtrar('tabuleiro')">TABULEIRO</button>
+        <button class="btn-cat btn-arcade" onclick="filtrar('arcade')">ARCADE</button>
+    </nav>
+
+    <div class="grid-jogos" id="grid">
+        
+        <a href="#" class="card-jogo" data-tipo="simulacao" onclick="jogar('Carro 3D')">
+            <div class="thumb" style="background: #4da6ff;">🏎️</div>
+            <div class="titulo-jogo">Corrida 3D</div>
+        </a>
+
+        <a href="#" class="card-jogo" data-tipo="acao" onclick="jogar('Sniper Cubo')">
+            <div class="thumb" style="background: #ff4d4d;">🔫</div>
+            <div class="titulo-jogo">Sniper Cubo</div>
+        </a>
+
+        <a href="#" class="card-jogo" data-tipo="arcade" onclick="jogar('Moto Grau')">
+            <div class="thumb" style="background: #ff4dff;">🏍️</div>
+            <div class="titulo-jogo">Moto Grau</div>
+        </a>
+
+        <a href="#" class="card-jogo" data-tipo="tabuleiro" onclick="jogar('Xadrez Pro')">
+            <div class="thumb" style="background: #ffdb4d;">♟️</div>
+            <div class="titulo-jogo">Xadrez Pro</div>
+        </a>
+
+    </div>
+
+    <a href="https://api.whatsapp.com/send?text=Jogue agora no meu portal
